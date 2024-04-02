@@ -20,20 +20,23 @@ const linkPages = ["home", "destination", "crew", "technology"];
   }
 
   .navbar__links {
-      width: 0;
-      list-style: none;
-    }
-    
-    .navbar__links--active {
-        position: fixed;
-        min-height: 100vh;
-        width: 75%;
-        padding: 2.4rem;
-    overflow: hidden;
-    z-index: 1;
+    position: fixed;
     top: 0;
     right: 0;
-    background-color: rgba(240, 248, 255, 0.247);
+    width: 0rem;
+    visibility: hidden;
+    /* overflow: hidden; */
+    min-height: 100vh;
+    padding: 2.4rem;
+    transition:  .3s;
+    list-style: none;
+    background-color: rgba(68, 71, 73, 0.527);
+}
+
+.navbar__links--active {
+    visibility: visible;
+    z-index: 1;
+    width: 75%;
   }
 
   .navbar__link-item {
@@ -53,16 +56,15 @@ const linkPages = ["home", "destination", "crew", "technology"];
 </style>
 
 <script>
-    const closeBtn = document.querySelector('.navbar__btn');
-    const navbarLinks = document.querySelector('.navbar__links');
-    console.log(navbarLinks);
-    closeBtn.addEventListener('click', function(e) {
-        navbarLinks.classList.remove('navbar__links--active')
-    })
+  const closeBtn = document.querySelector(".navbar__btn");
+  const navbarLinks = document.querySelector(".navbar__links");
+  closeBtn.addEventListener("click", function (e) {
+    navbarLinks.classList.remove("navbar__links--active");
+  });
 </script>
 
 <nav class="navbar">
-  <ul class="navbar__links navbar__links--active">
+  <ul class="navbar__links">
     <button class="navbar__btn">
       <img
         src={closeBtn.src}
