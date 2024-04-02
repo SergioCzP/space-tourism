@@ -1,5 +1,7 @@
 ---
-
+import Navbar from "./Navbar.astro";
+import logo from "../assets/shared/logo.svg";
+import hamburgerMenu from "../assets/shared/icon-hamburger.svg";
 ---
 
 <style>
@@ -7,6 +9,51 @@
     height: 8.8rem;
     border: solid 0.1rem var(--white);
   }
+
+  .header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header__btn{
+    border: none;
+    background-color: unset;
+  }
+
+  .header__hamburger{
+    object-fit: cover;
+  }
 </style>
 
-<header>header</header>
+<script>
+  const btnMenu = document.querySelector('.header__btn');
+  const menu = document.querySelector('.navbar__links')
+  
+  btnMenu.addEventListener('click', function(e){
+    menu.classList.add('navbar__links--active')
+  })
+</script>
+
+<header class="header">
+  <div class="header__home">
+    <a href="/" class="header__link">
+      <!-- <Image src={logo} alt="Logo Space Tourism" class="header__logo"/> -->
+      <img src={logo.src} alt="Logo Space Tourism" />
+    </a>
+  </div>
+
+  <div class="header__menu">
+    <button class="header__btn">
+      <img
+        src={hamburgerMenu.src}
+        alt="Menu"
+        aria-label="Display menu"
+        class="header__hamburger"
+      />
+    </button>
+  </div>
+
+  <Navbar  />
+</header>

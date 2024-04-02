@@ -1,0 +1,86 @@
+---
+import closeBtn from "../assets/shared/icon-close.svg";
+const linkPages = ["home", "destination", "crew", "technology"];
+---
+
+<style>
+  .navbar {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  .navbar__btn {
+    background-color: unset;
+    border: none;
+  }
+
+  .navbar__close {
+    object-fit: cover;
+  }
+
+  .navbar__links {
+      width: 0;
+      list-style: none;
+    }
+    
+    .navbar__links--active {
+        position: fixed;
+        min-height: 100vh;
+        width: 75%;
+        padding: 2.4rem;
+    overflow: hidden;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: rgba(240, 248, 255, 0.247);
+  }
+
+  .navbar__link-item {
+    display: flex;
+    /* TODO: Check */
+    gap: 2rem;
+  }
+
+  .navbar__index {
+    font-weight: bolder;
+  }
+
+  .navbar__link {
+    text-transform: uppercase;
+    color: var(--white);
+  }
+</style>
+
+<script>
+    const closeBtn = document.querySelector('.navbar__btn');
+    const navbarLinks = document.querySelector('.navbar__links');
+    console.log(navbarLinks);
+    closeBtn.addEventListener('click', function(e) {
+        navbarLinks.classList.remove('navbar__links--active')
+    })
+</script>
+
+<nav class="navbar">
+  <ul class="navbar__links navbar__links--active">
+    <button class="navbar__btn">
+      <img
+        src={closeBtn.src}
+        alt="Close Menu"
+        aria-label="Close menu"
+        class="navbar__close"
+      />
+    </button>
+
+    {
+      linkPages.map((link, index) => (
+        <li class="navbar__link-item">
+          <a href="/" class="navbar__link">
+            <span class="navbar__index">0{index}</span>
+            {link}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
