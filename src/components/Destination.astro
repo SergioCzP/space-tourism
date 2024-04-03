@@ -1,12 +1,45 @@
 ---
+import HeaderDestination from "./HeaderDestination.astro";
+import { destinations } from "../data.json";
 
+const { destinationName } = Astro.props;
+const [destination] = destinations.filter(
+  (destination) => destination.name === destinationName
+);
+console.log(destination);
+
+import img from "../assets/destination/image-moon.png";
 ---
 
 <section class="destination">
-    <h3 class="destination__heading"><span class="destination-span">01</span>Pick your destination</h3>
+  <!-- TODO: what number heading is -->
+  <h3 class="destination__heading">
+    <span class="destination-span">01</span>Pick your destination
+  </h3>
 
-    <!-- TODO: images .png .webp in .destination__image -->
-    <div class="destination__destination">
-      <!-- <img class="destination__image" src={destination.images.png} alt={destination.name}> -->
+  <!-- TODO: images .png .webp in .destination__image -->
+  <div class="destination__info">
+    <div class="destination__image-container">
+      <img class="destination__image" src={img.src} alt={destination.name} />
     </div>
-  </section>
+
+    <div class="destination__data">
+      <HeaderDestination />
+
+      <p class="destination__text">{destination.description}</p>
+
+      <!-- Rename same class numbers -->
+      <div class="destination__metrics">
+        <div class="destination__distance">
+          <h4 class="destination__distance-heading">Avg. distance</h4>
+          <p class="destination__distance-number">{destination.distance}</p>
+        </div>
+
+        <div class="destination__travel">
+          <h4 class="destination__travel-heading">Est. travel time</h4>
+          <p class="destination__travel-number">{destination.travel}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

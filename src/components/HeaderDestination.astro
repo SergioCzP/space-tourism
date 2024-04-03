@@ -5,11 +5,7 @@ const destinationLinks = ['moon', 'mars', 'europa', 'titan'];
 <div class="destination-nav-containter">
     <nav class="destination__nav">
         <ul class="destination__links">
-            {destinationLinks.map((link) => {
-                <li class="destination__link-item">
-                    <a href="/">{link}</a>
-                </li>
-            })}
+            {destinationLinks.map(link => <li class="destination-link-item"><a href="/" class="destination__link">{link}</a></li>)}
         </ul>
     </nav>
 </div>
