@@ -1,6 +1,7 @@
 ---
-import closeBtn from "../assets/shared/icon-close.svg";
-const linkPages = ["home", "destination", "crew", "technology"];
+import { Image } from 'astro:assets';
+import closeBtn from '../assets/shared/icon-close.svg';
+const linkPages = ['home', 'destination', 'crew', 'technology'];
 ---
 
 <style>
@@ -10,79 +11,111 @@ const linkPages = ["home", "destination", "crew", "technology"];
     width: 100%;
   }
 
+  .navbar__btn-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 2.4rem 1.4rem;
+  }
+
   .navbar__btn {
+    padding: 1rem;
     background-color: unset;
     border: none;
   }
 
   .navbar__close {
+    width: 2.4rem;
+    height: 2.1rem;
     object-fit: cover;
+    fill: var(--light-blue);
+    stroke: var(--light-blue);
   }
 
   .navbar__links {
     position: fixed;
+    padding: 0;
     top: 0;
     right: 0;
     width: 0rem;
     visibility: hidden;
     /* overflow: hidden; */
     min-height: 100vh;
-    padding: 2.4rem;
-    transition:  .3s;
+    transition: 0.3s;
     list-style: none;
-    background-color: rgba(68, 71, 73, 0.527);
-}
+    backdrop-filter: blur(7.5rem);
+  }
 
-.navbar__links--active {
+  .navbar__links--active {
     visibility: visible;
     z-index: 1;
     width: 75%;
+    overflow-x: hidden;
   }
 
-  .navbar__link-item {
+  .navbar__links-container {
     display: flex;
-    /* TODO: Check */
-    gap: 2rem;
-  }
-
-  .navbar__index {
-    font-weight: bolder;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem 0 0 3rem;
   }
 
   .navbar__link {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    font-family: var(--barlow-font);
     text-transform: uppercase;
     color: var(--white);
+  }
+
+  .navbar__index {
+    font-family: var(--barlow-font);
+    font-size: 1.6rem;
+    letter-spacing: var(--nav-text);
+    font-weight: bolder;
   }
 </style>
 
 <script>
-  const closeBtn = document.querySelector(".navbar__btn");
-  const navbarLinks = document.querySelector(".navbar__links");
-  closeBtn.addEventListener("click", function (e) {
-    navbarLinks.classList.remove("navbar__links--active");
+  const closeBtn = document.querySelector('.navbar__btn');
+  const navbarLinks = document.querySelector('.navbar__links');
+  closeBtn.addEventListener('click', function (e) {
+    navbarLinks.classList.remove('navbar__links--active');
   });
 </script>
 
 <nav class="navbar">
   <ul class="navbar__links">
-    <button class="navbar__btn">
-      <img
-        src={closeBtn.src}
-        alt="Close Menu"
-        aria-label="Close menu"
-        class="navbar__close"
-      />
-    </button>
+    <div class="navbar__btn-container">
+      <button class="navbar__btn">
+        <Image
+          src={closeBtn}
+          alt="Close Menu"
+          aria-label="Close menu"
+          class="navbar__close"
+        />
+        <!-- <img
+          src={closeBtn.src}
+          alt="Close Menu"
+          aria-label="Close menu"
+          class="navbar__close"
+        /> -->
+      </button>
+    </div>
 
-    {
-      linkPages.map((link, index) => (
-        <li class="navbar__link-item">
-          <a href="/" class="navbar__link">
-            <span class="navbar__index">0{index}</span>
-            {link}
-          </a>
-        </li>
-      ))
-    }
+    <!-- TODO: BORDER RIGHT TO .navbar__link -->
+    <div class="navbar__links-container">
+      {
+        linkPages.map((link, index) => (
+          <li class="navbar__link-item">
+            <a href="/" class="navbar__link">
+              <span class="navbar__index">0{index}</span>
+              {link}
+            </a>
+          </li>
+        ))
+      }
+    </div>
   </ul>
 </nav>
