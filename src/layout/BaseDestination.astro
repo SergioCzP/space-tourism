@@ -1,0 +1,25 @@
+---
+import Base from "./Base.astro";
+import HeaderDestination from "../components/HeaderDestination.astro";
+import bgImageMobile from "../../assets/destination/background-destination-mobile.jpg";
+import { destinations }  from "../data.json";
+
+import imgMoon from '../assets/destination/image-moon.png';
+
+const {destinationName} = Astro.props;
+const [destination] = destinations.filter(destination => destination.name === destinationName)
+console.log(destination);
+
+
+---
+
+<style>
+  body {
+    background-image: url(../../assets/destination/background-destination-mobile.jpg);
+  }
+</style>
+
+<Base>
+  
+
+</Base>
