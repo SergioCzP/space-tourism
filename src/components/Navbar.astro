@@ -109,7 +109,7 @@ const linkPages = ['home', 'destination', 'crew', 'technology'];
       {
         linkPages.map((link, index) => (
           <li class="navbar__link-item">
-            <a href="/" class="navbar__link">
+            <a href={`/${link}`} class="navbar__link">
               <span class="navbar__index">0{index}</span>
               {link}
             </a>
