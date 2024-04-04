@@ -2,10 +2,26 @@
 const destinationLinks = ['moon', 'mars', 'europa', 'titan'];
 ---
 
+<style>
+    .destination__links{
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        padding: 0;
+        list-style: none;
+    }
+
+    /* TODO: check styles and border bottom*/
+    .destination__link{
+        color: var(--white);
+        padding: 1rem;
+    }
+</style>
+
 <div class="destination-nav-containter">
     <nav class="destination__nav">
         <ul class="destination__links">
-            {destinationLinks.map(link => <li class="destination-link-item"><a href="/" class="destination__link">{link}</a></li>)}
+            {destinationLinks.map(link => <li class="destination-link-item"><a href="/" class="destination__link nav-text">{link}</a></li>)}
         </ul>
     </nav>
 </div>
