@@ -1,0 +1,5 @@
+---
+import BaseCrew from "../../layout/BaseCrew.astro";
+---
+<BaseCrew crewName="">
+</BaseCrew>

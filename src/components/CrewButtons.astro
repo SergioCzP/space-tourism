@@ -1,0 +1,19 @@
+---
+const crewPages = ["douglas", "mark", "victor", "anousheh"];
+---
+
+<div class="crew__buttons">
+  <nav class="crew__nav">
+    <ul class="crew__links">
+      {
+        crewPages.map((link) => (
+          <li class="crew__link-item">
+            <a href={`./${link}`} class="crew__link" aria-label={`Redirect to ${link} page`}>
+              {link}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</div>
