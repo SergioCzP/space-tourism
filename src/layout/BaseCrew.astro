@@ -1,0 +1,18 @@
+---
+import Base from "./Base.astro";
+import Crew from "../components/Crew.astro";
+
+const {crewName} = Astro.props;
+---
+
+<style>
+    body{
+        background-image: url(../assets/crew/background-crew-mobile.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+
+<Base>
+    <Crew crewName={crewName}/>
+</Base>
