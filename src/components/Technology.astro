@@ -1,0 +1,34 @@
+---
+import TechnologyNav from "./TechnologyNav.astro";
+import {technology}  from '../data.json';
+// console.log(technology);
+const {techName}  = Astro.props;
+const [tech] = technology.filter(tech => tech.name === techName);
+console.log(tech);
+
+
+---
+
+<section class="tech">
+  <h5 class="tech__heading">
+    <span class="tech__heading--opacity">03</span> Space launch 101
+  </h5>
+
+  <div class="tech__content">
+    <div class="tech__media">
+        <img src="../assets/technology/image-launch-vehicle-landscape.jpg" alt="launch vehicle" class="tech__image">
+    </div>
+
+    <div class="tech__info">
+        <TechnologyNav/>
+
+        <div class="tech__specs">
+            <h5 class="tech__terminology">The terminology</h5>
+            <h2 class="tech__name">{tech.name}</h2>
+            <div class="tech__description">{tech.description}</div>
+        </div>
+    </div>
+  </div>
+</section>
+
+

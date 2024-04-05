@@ -1,0 +1,23 @@
+---
+const pages = ["launch", "capsule", "spaceport"];
+---
+
+<div class="tech__navbar">
+  <nav class="tech__nav">
+    <ul class="tech__links">
+      {
+        pages.map((link, index) => (
+          <li class="tech__link-item">
+            <a
+              href={`/technology/${link}`}
+              class="tech__link"
+              aria-label={`Redirect to ${link}`}
+            >
+            {index}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</div>
