@@ -32,6 +32,7 @@ console.log(images);
     border-bottom: solid 0.1rem #383b4b;
   }
   .crew__member {
+    margin: 0 auto;
     height: 22.3rem;
     object-fit: contain;
   }
@@ -62,13 +63,13 @@ console.log(images);
 
   <div class="crew__content">
     <div class="crew__personal">
-      <!-- <img src={douglas.src} alt="Douglas"> -->
-      <Picture
+      <img src={douglas.src} alt="Douglas"   class="crew__member">
+      <!-- <Picture
         src={images[member.images.png]()}
         formats={['webp', 'png']}
         alt={member.name}
         class="crew__member"
-      />
+      /> -->
     </div>
 
     <div class="crew__info">
