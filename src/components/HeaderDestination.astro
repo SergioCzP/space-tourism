@@ -1,5 +1,5 @@
 ---
-const destinationLinks = ["moon", "mars", "europa", "titan"];
+const destinationLinks = ['moon', 'mars', 'europa', 'titan'];
 ---
 
 <style>
@@ -25,7 +25,7 @@ const destinationLinks = ["moon", "mars", "europa", "titan"];
         destinationLinks.map((link) => (
           <li class="destination-link-item">
             <a
-              href={`./${link === "moon" ? "" : link}`}
+              href={`/destination/${link === 'moon' ? '' : link}`}
               class="destination__link nav-text"
             >
               {link}
