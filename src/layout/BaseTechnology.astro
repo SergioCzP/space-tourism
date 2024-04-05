@@ -4,6 +4,14 @@ import Technology from "../components/Technology.astro";
 const {techName} = Astro.props;
 ---
 
+<style>
+    body{
+        background-image: url(../assets/technology/background-technology-mobile.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+   }
+</style>
+
 <Base>
     <Technology techName={techName}/>
 </Base>
