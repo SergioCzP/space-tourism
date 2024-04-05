@@ -1,14 +1,52 @@
 ---
-const crewPages = ["douglas", "mark", "victor", "anousheh"];
+const crewPages = ['douglas', 'mark', 'victor', 'anousheh'];
 ---
+
+<style>
+  .crew__nav {
+    padding: 3rem 0;
+  }
+
+  .crew__links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    gap: 1.5rem;
+  }
+
+  .crew__link-item {
+    display: flex;
+    align-items: center;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: var(--white);
+    opacity: 20%;
+    overflow: hidden;
+  }
+
+  /* .crew__link-item--active {
+    opacity: 100%;
+  } */
+
+  .crew__link {
+    color: transparent;
+    opacity: 100%;
+  }
+</style>
 
 <div class="crew__buttons">
   <nav class="crew__nav">
     <ul class="crew__links">
       {
         crewPages.map((link) => (
-          <li class="crew__link-item">
-            <a href={`./${link}`} class="crew__link" aria-label={`Redirect to ${link} page`}>
+          <li class="crew__link-item crew__link-item--active">
+            <a
+              href={`/crew/${link === 'douglas' ? '' : link}`}
+              class="crew__link"
+              aria-label={`Redirect to ${link} page`}
+            >
               {link}
             </a>
           </li>
