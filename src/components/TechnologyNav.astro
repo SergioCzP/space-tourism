@@ -1,5 +1,6 @@
 ---
 const pages = ['launch', 'capsule', 'spaceport'];
+const { techLink } = Astro.props;
 ---
 
 <style>
@@ -16,12 +17,18 @@ const pages = ['launch', 'capsule', 'spaceport'];
     align-items: center;
     justify-content: center;
     font-size: 1.6rem;
-    border: solid 0.1rem var(--white);
+    border: solid 0.2rem rgb(255 255 255 / 20%);
     line-height: 1;
     border-radius: 50%;
     width: 4rem;
     height: 4rem;
     color: var(--white);
+  }
+
+  .tech__link--active {
+    border-color: var(--white);
+    background-color: var(--white);
+    color: var(--dark-blue);
   }
 </style>
 
@@ -32,8 +39,8 @@ const pages = ['launch', 'capsule', 'spaceport'];
         pages.map((link, index) => (
           <li class="tech__link-item">
             <a
-              href={`/technology/${link}`}
-              class="tech__link"
+              href={`/technology/${link === 'launch' ? '' : link}`}
+              class={`tech__link  ${link === techLink ? 'tech__link--active' : ''}`}
               aria-label={`Redirect to ${link}`}
             >
               {index}

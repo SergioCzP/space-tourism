@@ -2,7 +2,7 @@
 import TechnologyNav from './TechnologyNav.astro';
 import { technology } from '../data.json';
 
-const { techName } = Astro.props;
+const { techName, techLink } = Astro.props;
 const [tech] = technology.filter((tech) => tech.name === techName);
 const images = import.meta.glob<{ default: ImageMetadata }>(
   '../assets/technology/*.jpg'
@@ -76,7 +76,7 @@ console.log(portrait);
     </div>
 
     <div class="tech__info">
-      <TechnologyNav />
+      <TechnologyNav techLink={techLink} />
 
       <div class="tech__specs">
         <h5 class="tech__terminology subheading-2">The terminology...</h5>
