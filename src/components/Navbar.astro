@@ -1,7 +1,9 @@
 ---
 import { Image } from 'astro:assets';
 import closeBtn from '../assets/shared/icon-close.svg';
+
 const linkPages = ['home', 'destination', 'crew', 'technology'];
+const { activePage = '' } = Astro.props;
 ---
 
 <style>
@@ -62,11 +64,16 @@ const linkPages = ['home', 'destination', 'crew', 'technology'];
   .navbar__link {
     display: flex;
     gap: 1rem;
+    line-height: 1;
     padding: 1.5rem;
     font-size: 1.6rem;
     font-family: var(--barlow-font);
     text-transform: uppercase;
     color: var(--white);
+  }
+
+  .navbar__link--active {
+    border-right: solid 0.4rem var(--white);
   }
 
   .navbar__index {
@@ -109,7 +116,10 @@ const linkPages = ['home', 'destination', 'crew', 'technology'];
       {
         linkPages.map((link, index) => (
           <li class="navbar__link-item">
-            <a href={`/${link}`} class="navbar__link">
+            <a
+              href={`/${link === 'home' ? '' : link}`}
+              class={`navbar__link ${link === activePage ? 'navbar__link--active' : ''}`}
+            >
               <span class="navbar__index">0{index}</span>
               {link}
             </a>

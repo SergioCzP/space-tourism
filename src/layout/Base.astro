@@ -1,8 +1,9 @@
 ---
 import '../styles/global.css';
 import '../styles/base.css';
-
 import Header from '../components/Header.astro';
+
+const { activePage = '' } = Astro.props;
 ---
 
 <html lang="en">
@@ -20,7 +21,7 @@ import Header from '../components/Header.astro';
     /></head
   >
   <body>
-    <Header />
+    <Header activePage={activePage} />
     <slot />
   </body>
 </html>

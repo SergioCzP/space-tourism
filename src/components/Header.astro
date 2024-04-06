@@ -3,6 +3,8 @@ import { Image } from 'astro:assets';
 import Navbar from './Navbar.astro';
 import logo from '../assets/shared/logo.svg';
 import hamburgerMenu from '../assets/shared/icon-hamburger.svg';
+
+const { activePage } = Astro.props;
 ---
 
 <style>
@@ -68,5 +70,5 @@ import hamburgerMenu from '../assets/shared/icon-hamburger.svg';
     </button>
   </div>
 
-  <Navbar />
+  <Navbar activePage={activePage} />
 </header>
