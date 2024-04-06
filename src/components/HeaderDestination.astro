@@ -1,5 +1,6 @@
 ---
 const destinationLinks = ['moon', 'mars', 'europa', 'titan'];
+const { destinationLink } = Astro.props;
 ---
 
 <style>
@@ -16,6 +17,10 @@ const destinationLinks = ['moon', 'mars', 'europa', 'titan'];
     color: var(--white);
     padding: 1rem;
   }
+
+  .destination__link--active {
+    border-bottom: solid 0.3rem var(--white);
+  }
 </style>
 
 <div class="destination-nav-containter">
@@ -26,7 +31,7 @@ const destinationLinks = ['moon', 'mars', 'europa', 'titan'];
           <li class="destination-link-item">
             <a
               href={`/destination/${link === 'moon' ? '' : link}`}
-              class="destination__link nav-text"
+              class={`destination__link nav-text ${destinationLink === link ? 'destination__link--active' : ''}`}
             >
               {link}
             </a>

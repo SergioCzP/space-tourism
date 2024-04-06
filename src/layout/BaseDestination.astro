@@ -2,7 +2,7 @@
 import Base from './Base.astro';
 import Destination from '../components/Destination.astro';
 
-const { destinationName } = Astro.props;
+const { destinationName, destinationLink } = Astro.props;
 ---
 
 <style>
@@ -14,5 +14,8 @@ const { destinationName } = Astro.props;
 </style>
 
 <Base activePage="destination">
-  <Destination destinationName={destinationName} />
+  <Destination
+    destinationName={destinationName}
+    destinationLink={destinationLink}
+  />
 </Base>
