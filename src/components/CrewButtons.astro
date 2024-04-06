@@ -1,5 +1,6 @@
 ---
 const crewPages = ['douglas', 'mark', 'victor', 'anousheh'];
+const { crewLink } = Astro.props;
 ---
 
 <style>
@@ -18,21 +19,24 @@ const crewPages = ['douglas', 'mark', 'victor', 'anousheh'];
   .crew__link-item {
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 1rem;
     height: 1rem;
     border-radius: 50%;
-    background-color: var(--white);
-    opacity: 20%;
-    overflow: hidden;
+    background-color: rgb(255 255 255 / 0.2);
   }
 
-  /* .crew__link-item--active {
-    opacity: 100%;
-  } */
+  .crew__link-item--active {
+    background-color: var(--white);
+  }
 
   .crew__link {
+    width: 1rem;
+    height: 1rem;
+    padding: 1rem;
     color: transparent;
-    opacity: 100%;
+    background-color: transparent;
+    border-radius: 50%;
   }
 </style>
 
@@ -41,7 +45,9 @@ const crewPages = ['douglas', 'mark', 'victor', 'anousheh'];
     <ul class="crew__links">
       {
         crewPages.map((link) => (
-          <li class="crew__link-item crew__link-item--active">
+          <li
+            class={`crew__link-item ${crewLink === link ? 'crew__link-item--active' : ''}`}
+          >
             <a
               href={`/crew/${link === 'douglas' ? '' : link}`}
               class="crew__link"

@@ -2,7 +2,7 @@
 import Base from './Base.astro';
 import Crew from '../components/Crew.astro';
 
-const { crewName } = Astro.props;
+const { crewName, crewLink } = Astro.props;
 ---
 
 <style>
@@ -14,5 +14,5 @@ const { crewName } = Astro.props;
 </style>
 
 <Base activePage="crew">
-  <Crew crewName={crewName} />
+  <Crew crewName={crewName} crewLink={crewLink} />
 </Base>

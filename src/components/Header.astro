@@ -54,7 +54,12 @@ const { activePage } = Astro.props;
 <header class="header">
   <div class="header__home">
     <a href="/" class="header__link" aria-label="Go main page">
-      <Image src={logo} alt="Logo Space Tourism" class="header__logo" />
+      <Image
+        loading="eager"
+        src={logo}
+        alt="Logo Space Tourism"
+        class="header__logo"
+      />
       <!-- <img src={logo.src} alt="Logo Space Tourism" /> -->
     </a>
   </div>
@@ -66,7 +71,12 @@ const { activePage } = Astro.props;
         alt="Menu"
         class="header__hamburger"
       /> -->
-      <Image src={hamburgerMenu} alt="Menu" class="header__hamburger" />
+      <Image
+        loading="eager"
+        src={hamburgerMenu}
+        alt="Menu"
+        class="header__hamburger"
+      />
     </button>
   </div>
 
