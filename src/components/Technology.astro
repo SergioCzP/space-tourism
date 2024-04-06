@@ -1,16 +1,20 @@
 ---
-import type { ImageMetadata } from "astro";
-import { Image } from "astro:assets";
-import TechnologyNav from "./TechnologyNav.astro";
-import { technology } from "../data.json";
-import imagePrueba from "../assets/technology/image-launch-vehicle-landscape.jpg";
-// console.log(technology);
+import TechnologyNav from './TechnologyNav.astro';
+import { technology } from '../data.json';
+
 const { techName } = Astro.props;
 const [tech] = technology.filter((tech) => tech.name === techName);
-console.log(tech);
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  "../assets/technology/*.{jpg}"
+  '../assets/technology/*.jpg'
 );
+
+const landPromise = await images[tech.images.landscape]();
+const landscape = landPromise.default.src;
+const portraitPromise = await images[tech.images.portrait]();
+const portrait = portraitPromise.default.src;
+
+console.log(landscape);
+console.log(portrait);
 ---
 
 <style>
@@ -25,13 +29,14 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     opacity: 0.25;
   }
 
-  .tech__media{
-    width: 100%;
+  .tech__media {
+    padding: 3rem 0;
   }
 
   .tech__image {
     /* TODO: CHECK */
     object-fit: cover;
+    min-height: 17rem;
   }
 
   .tech__terminology,
@@ -39,8 +44,18 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     text-align: center;
   }
 
-  .tech__description{
-  
+  .tech__specs {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2.5rem 0;
+  }
+
+  .tech__description {
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    padding: 0 3rem;
   }
 </style>
 
@@ -51,21 +66,21 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 
   <div class="tech__content">
     <div class="tech__media">
-      <img src={imagePrueba.src} alt="launch vehicle" class="tech__image" />
-      <!-- <Image
-        src={images[tech.images.landscape]()}
-        alt={tech.name}
-        widths={[515, 768]}
-        sizes={`(max-width: 767px) 515px, (min-width: 768px) 768px`}
-      /> -->
+      <!-- <img src={imagePrueba.src} alt="launch vehicle" class="tech__image" /> -->
+
+      <picture>
+        <source media="(max-width: 767px)" srcset={landscape} />
+        <source media="(min-width: 768px)" srcset={portrait} />
+        <img src={portrait} alt={tech.name} class="tech__image" />
+      </picture>
     </div>
 
     <div class="tech__info">
       <TechnologyNav />
 
       <div class="tech__specs">
-        <h5 class="tech__terminology">The terminology</h5>
-        <h2 class="tech__name">{tech.name}</h2>
+        <h5 class="tech__terminology subheading-2">The terminology...</h5>
+        <h3 class="tech__name">{tech.name}</h3>
         <p class="tech__description">{tech.description}</p>
       </div>
     </div>
