@@ -13,10 +13,22 @@ const { activePage = '' } = Astro.props;
     width: 100%;
   }
 
+  @media (min-width: 768px) {
+    .navbar {
+      width: auto;
+    }
+  }
+
   .navbar__btn-container {
     display: flex;
     justify-content: flex-end;
     padding: 2.4rem 1.4rem;
+  }
+
+  @media (min-width: 768px) {
+    .navbar__btn-container {
+      display: none;
+    }
   }
 
   .navbar__btn {
@@ -47,6 +59,13 @@ const { activePage = '' } = Astro.props;
     backdrop-filter: blur(7.5rem);
   }
 
+  @media (min-width: 768px) {
+    .navbar__links {
+      background: rgb(255 255 255 / 5%);
+      backdrop-filter: blur(1rem);
+    }
+  }
+
   .navbar__links--active {
     visibility: visible;
     z-index: 1;
@@ -54,11 +73,29 @@ const { activePage = '' } = Astro.props;
     overflow-x: hidden;
   }
 
+  @media (min-width: 768px) {
+    .navbar__links {
+      position: static;
+      width: auto;
+      min-height: unset;
+      visibility: visible;
+      z-index: unset;
+      overflow-x: auto;
+    }
+  }
+
   .navbar__links-container {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
     padding: 2rem 0 0 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .navbar__links-container {
+      flex-direction: row;
+      padding: 3rem;
+    }
   }
 
   .navbar__link {
@@ -72,8 +109,34 @@ const { activePage = '' } = Astro.props;
     color: var(--white);
   }
 
+  @media (min-width: 768px) {
+    .navbar__link {
+      position: relative;
+      display: inline-block;
+      padding: 1.5rem;
+      font-size: 1.4rem;
+    }
+  }
+
   .navbar__link--active {
     border-right: solid 0.4rem var(--white);
+  }
+
+  @media (min-width: 768px) {
+    .navbar__link--active {
+      border-right: none;
+    }
+
+    .navbar__link--active::after {
+      content: '';
+      position: absolute;
+      display: block;
+      left: 0;
+      bottom: -3rem;
+      width: 100%;
+      height: 0.3rem;
+      background-color: var(--white);
+    }
   }
 
   .navbar__index {
@@ -81,6 +144,12 @@ const { activePage = '' } = Astro.props;
     font-size: 1.6rem;
     letter-spacing: var(--nav-text);
     font-weight: bolder;
+  }
+
+  @media (min-width: 768px) {
+    .navbar__index {
+      display: none;
+    }
   }
 </style>
 
@@ -111,7 +180,6 @@ const { activePage = '' } = Astro.props;
       </button>
     </div>
 
-    <!-- TODO: BORDER RIGHT TO .navbar__link -->
     <div class="navbar__links-container">
       {
         linkPages.map((link, index) => (
