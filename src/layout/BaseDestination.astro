@@ -11,6 +11,12 @@ const { destinationName, destinationLink } = Astro.props;
     background-repeat: no-repeat;
     background-size: cover;
   }
+
+  @media (min-width: 768px) {
+    body {
+      background-image: url(../assets/destination/background-destination-tablet.jpg);
+    }
+  }
 </style>
 
 <Base activePage="destination">
