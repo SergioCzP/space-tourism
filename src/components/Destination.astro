@@ -75,9 +75,25 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     padding: 2rem 0;
   }
 
+  @media (min-width: 768px) {
+    .destination__content {
+      padding: 0 10rem;
+    }
+
+    .destination__destintation {
+      padding: 3rem 0;
+    }
+  }
+
   .destination__destintation,
   .destination__text {
     text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .destination__destintation {
+      font-size: 8rem;
+    }
   }
 
   .destination__text {
@@ -87,6 +103,12 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     padding: 0 3rem;
   }
 
+  @media (min-width: 768px) {
+    .destination__text {
+      padding: 0;
+    }
+  }
+
   .metrics {
     border-top: solid 0.1rem #383b4b;
     padding: 2rem 0;
@@ -94,6 +116,15 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     flex-direction: column;
     align-items: center;
     gap: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .metrics {
+      /* border: none; */
+      margin: 4rem 0;
+      flex-direction: row;
+      justify-content: center;
+    }
   }
 
   .metrics__container {
