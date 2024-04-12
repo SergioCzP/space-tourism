@@ -17,6 +17,15 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     color: var(--white);
   }
 
+  @media (min-width: 768px) {
+    .crew__heading {
+      font-size: 2rem;
+      letter-spacing: 0.338rem;
+      text-align: left;
+      padding: 4rem;
+    }
+  }
+
   .crew__heading-span {
     opacity: 25%;
   }
@@ -25,24 +34,74 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     padding: 3rem 2.4rem;
   }
 
+  @media (min-width: 768px) {
+    .crew__content {
+      display: flex;
+      flex-direction: column-reverse;
+      padding: 0 15rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .crew__info {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
+
   .crew__personal {
     border-bottom: solid 0.1rem #383b4b;
   }
+
+  @media (min-width: 768px) {
+    .crew__personal {
+      border: none;
+    }
+  }
+
   .crew__member {
     margin: 0 auto;
     height: 22.3rem;
     object-fit: contain;
   }
 
+  @media (min-width: 768px) {
+    .crew__member {
+      object-fit: cover;
+      min-height: 54rem;
+      height: auto;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .crew__about {
+      padding: 2rem 0;
+    }
+  }
+
   .crew__role {
     text-align: center;
     color: var(--white);
     opacity: 50%;
+    font-family: var(--bellafair-font);
+  }
+
+  @media (min-width: 768px) {
+    .crew__role {
+      font-size: 2.4rem;
+    }
   }
 
   .crew__name {
     text-align: center;
     padding: 1rem 0;
+  }
+
+  @media (min-width: 768px) {
+    .crew__name {
+      padding: 1rem 0 1.5rem;
+      font-size: 4rem;
+    }
   }
 
   .crew__bio {
