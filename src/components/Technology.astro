@@ -22,6 +22,14 @@ const portrait = portraitPromise.default.src;
     color: var(--white);
   }
 
+  @media (min-width: 768px) {
+    .tech__heading {
+      padding: 4rem 3.9rem;
+      justify-content: flex-start;
+      font-size: 2rem;
+    }
+  }
+
   .tech__heading--opacity {
     opacity: 0.25;
   }
@@ -30,10 +38,23 @@ const portrait = portraitPromise.default.src;
     padding: 3rem 0;
   }
 
+  @media (min-width: 768px) {
+    .tech__media {
+      padding: 2rem 0;
+    }
+  }
+
   .tech__image {
     /* TODO: CHECK */
     object-fit: cover;
     min-height: 17rem;
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .tech__image {
+      min-height: unset;
+    }
   }
 
   .tech__terminology,
@@ -48,11 +69,38 @@ const portrait = portraitPromise.default.src;
     padding: 2.5rem 0;
   }
 
+  @media (min-width: 768px) {
+    .tech__terminology {
+      font-size: 1.6rem;
+      letter-spacing: var(--nav-text);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .tech__specs {
+      padding: 1rem 15rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .tech__name {
+      font-size: 4rem;
+    }
+  }
+
   .tech__description {
     text-align: center;
     font-size: 1.5rem;
     line-height: 2.5rem;
     padding: 0 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .tech__description {
+      font-size: 1.6rem;
+      line-height: 2.8rem;
+      padding: 0;
+    }
   }
 </style>
 
@@ -66,8 +114,8 @@ const portrait = portraitPromise.default.src;
       <!-- <img src={imagePrueba.src} alt="launch vehicle" class="tech__image" /> -->
 
       <picture>
-        <source media="(max-width: 767px)" srcset={landscape} />
-        <source media="(min-width: 768px)" srcset={portrait} />
+        <source media="(max-width: 1023px)" srcset={landscape} />
+        <source media="(min-width: 1024px)" srcset={portrait} />
         <img src={portrait} alt={tech.name} class="tech__image" />
       </picture>
     </div>

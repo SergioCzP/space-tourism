@@ -10,6 +10,12 @@ const { techName, techLink } = Astro.props;
     background-repeat: no-repeat;
     background-size: cover;
   }
+
+  @media (min-width: 768px) {
+    body {
+      background-image: url(../assets/technology/background-technology-tablet.jpg);
+    }
+  }
 </style>
 
 <Base activePage="technology">
